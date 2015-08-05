@@ -164,7 +164,8 @@ class pySaliencyMap:
                 lmaxmean += lmax
                 numlocal += 1
         # averaging over all the local regions
-        return lmaxmean / numlocal
+        eps = 1e-6
+        return round(lmaxmean / (numlocal+eps))
     ## normalization specific for the saliency map model
     def SMNormalization(self, src):
         dst = self.SMRangeNormalize(src)
